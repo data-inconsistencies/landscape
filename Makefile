@@ -24,6 +24,7 @@ deploy:
 	git stage -f build
 	git commit -m "update static build for pages"
 	git subtree push --prefix build origin gh-pages
+	git checkout main
 
 .PHONY: secrets-encrpyt
 ## encrypt secrets with SOPS and AGE
