@@ -1,0 +1,236 @@
+# Landscape2 data
+#
+# This file contains the data that will be used to generate the landscape.
+#
+# Reference documentation: https://github.com/cncf/landscape2/blob/main/docs/config/data.yml
+
+categories:
+  - name: Compute (SQL)
+    subcategories:
+      - name: Ingestion
+        items:
+          - name: Item 1
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 1
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: StarRocks
+            description: An OLAP engine
+            homepage_url: https://starrocks.io
+            logo: starrocks.png
+            repo_url: https://github.com/StarRocks/starrocks/
+          - name: Clickhouse
+            description: This is the description of item 3
+            homepage_url: https://clickhouse.com/
+            logo: clickhouse.png
+            repo_url: https://github.com/ClickHouse/ClickHouse
+      - name: Transformation
+        items:
+          - name: Item 4
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 4
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 5
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 5
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+      - name: Query
+        items:
+          - name: Item 4
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 4
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+            project: hudi
+          - name: Item 5
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 5
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            format: hudi
+            repo_url: https://github.com/cncf/landscape2
+  - name: Compute (Python)
+    subcategories:
+      - name: Ingestion
+        items:
+          - name: Item 1
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 1
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 2
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 2
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 3
+            description: This is the description of item 3
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: Transformation
+        items:
+          - name: Item 4
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 4
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 5
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 5
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+      - name: Query
+        items:
+          - name: Item 4
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 4
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 5
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 5
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+  - name: Data Catalog
+    subcategories:
+      - name: Apache Hudi
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: Apache Iceberg
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: Delta Lake
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+  - name: Data Table Format
+    subcategories:
+      - name: Open Table Format
+        items:
+          - name: Apache Hudi
+            description: This is the description of item 6
+            homepage_url: https://hudi.apache.org/
+            logo: apachehudi.png
+            repo_url: https://github.com/apache/hudi
+          - name: Apache Iceberg
+            description: This is the description of item 7
+            homepage_url: https://iceberg.apache.org/
+            logo: cncf.svg
+            repo_url: https://github.com/apache/iceberg
+          - name: Delta Lake
+            description: This is the description of item 8
+            homepage_url: https://delta.io/
+            logo: deltalake.png
+            repo_url: https://github.com/delta-io/delta
+  - name: Data Storage
+    subcategories:
+      - name: Object Store
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: HDFS
+        items:
+          - item:
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 9
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            name: Item 9
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
