@@ -19,11 +19,17 @@ serve:
 deploy:
 	sed -i 's|http://127.0.0.1:8000|https://landscape.data-inconsistencies.datajourney.expert|g' settings.yml
 	landscape2 build --data-file data.yml --settings-file settings.yml --guide-file guide.yml --games-file games.yml --logos-path logos --output-dir build
-	git checkout settings.yml
-	git checkout gh-pages
-	git stage -f build
-	git commit -m "update static build for pages"
-	git subtree push --prefix build origin gh-pages
+	
+	if [[ -n $(git status --porcelain) ]]; then
+		git checkout settings.yml
+		git checkout gh-pages
+		git stage -f build
+		git commit -m "update static build for pages"
+		git subtree push --prefix build origin gh-pages
+	else
+		echo "No changes to commit."
+	fi
+
 	git checkout main
 
 .PHONY: secrets-encrpyt
