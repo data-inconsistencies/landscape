@@ -4,7 +4,6 @@
 SOPS_AGE_RECIPIENTS := $(shell sh -c ./scripts/simplify-public-keys.sh)
 FILES_TO_ENCRYPT = .env
 
-.PHONY: build
 ## build the landscape
 build:
 	landscape2 build --data-file data.yml --settings-file settings.yml --guide-file guide.yml --games-file games.yml --logos-path logos --output-dir build
