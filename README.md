@@ -45,4 +45,5 @@ then read the readme there:
 ```bash
 make build
 make serve
+make deploy
 ```
