@@ -15,6 +15,14 @@ build:
 serve:
 	landscape2 serve --landscape-dir build
 
+
+.PHONY: deploy
+deploy: build
+	git checkout gh-pages
+	git stage -f build
+	git commit -m "update static build for pages"
+	git subtree push --prefix build origin gh-pages
+
 .PHONY: secrets-encrpyt
 ## encrypt secrets with SOPS and AGE
 secrets-encrpyt:
