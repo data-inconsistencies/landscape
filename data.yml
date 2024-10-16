@@ -159,6 +159,28 @@ categories:
             description: This is the description of item 8
             homepage_url: https://cncf.io
             logo: cncf.svg
+      - name: Nessi time travel
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
       - name: Delta Lake
         items:
           - name: Item 6
@@ -181,6 +203,24 @@ categories:
             description: This is the description of item 8
             homepage_url: https://cncf.io
             logo: cncf.svg
+      - name: Metadata
+        items:
+          - name: Open Metadata
+            crunchbase: https://www.crunchbase.com/organization/collate
+            description: Open and unified metadata platform for data discovery, observability, and governance. A single place for all your data and all your data practitioners to build and manage high quality data assets at scale. Built by Collate and the founders of Apache Hadoop, Apache Atlas, and Uber Databook.
+            homepage_url: https://open-metadata.org/
+            logo: openmetadata.png
+            project: graduated
+            repo_url: https://github.com/open-metadata/OpenMetadata
+            twitter: https://x.com/open_metadata
+          - name: DataHub
+            crunchbase: https://www.crunchbase.com/organization/acryl-data
+            description: Unified Discovery, Observability, and Governance for Data and AI.
+            homepage_url: https://datahubproject.io/
+            logo: datahub-project.jpg
+            project: sandbox
+            repo_url: https://github.com/datahub-project/datahub
+            twitter: https://x.com/datahubproject
   - name: Data Table Format
     subcategories:
       - name: Open Table Format
@@ -234,3 +274,103 @@ categories:
             name: Item 9
             repo_url: https://github.com/cncf/landscape2
             twitter: https://twitter.com/CloudNativeFdn
+  - name: Data Orchestration
+    subcategories:
+      - name: Asset aware
+        items:
+          - name: Dagster
+            crunchbase: https://www.crunchbase.com/organization/elementl
+            description: The cloud-native orchestrator for the whole development lifecycle, with integrated lineage and observability, a declarative programming model, and best-in-class testability.
+            homepage_url: https://dagster.io/
+            logo: dagster.png
+            project: graduated
+            repo_url: https://github.com/dagster-io/dagster
+            twitter: https://x.com/dagster
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: Task based
+        items:
+          - name: Airflow
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 9
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+  - name: BI and Visualization
+    subcategories:
+      - name: traditional
+        items:
+          - name: Item 6
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 6
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: as code
+        items:
+          - item:
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 9
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            name: Item 9
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+  - name: Semantic Layer
+    subcategories:
+      - name: closed
+        items:
+          - name: dbt semantic layer
+            crunchbase: https://www.crunchbase.com/organization/dbt-labs
+            description: This is the description of item 6
+            homepage_url: https://www.getdbt.com/product/semantic-layer
+            logo: cncf.svg
+            project: graduated
+            repo_url: https://github.com/dbt-labs/metricflow
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 7
+            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
+            description: This is the description of item 7
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+            project: sandbox
+            repo_url: https://github.com/cncf/landscape2
+            twitter: https://twitter.com/CloudNativeFdn
+          - name: Item 8
+            description: This is the description of item 8
+            homepage_url: https://cncf.io
+            logo: cncf.svg
+      - name: open
+        items:
+          - name: Cube.dev
+            crunchbase: https://www.crunchbase.com/organization/cube-dev
+            description: This is the description of item 9
+            homepage_url: https://cube.dev/g
+            logo: cubedev.png
+            repo_url: https://github.com/cube-js/cube
+            twitter: https://x.com/the_cube_dev

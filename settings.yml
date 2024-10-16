@@ -59,6 +59,9 @@ groups:
       - Data Catalog
       - Data Table Format
       - Data Storage
+      - Data Orchestration
+      - BI and Visualization
+      - Semantic Layer
 
 header:
   links:
