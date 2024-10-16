@@ -14,7 +14,7 @@ categories:
             description: This is the description of item 1
             homepage_url: https://cncf.io
             logo: cncf.svg
-            project: graduated
+            project: null
             repo_url: https://github.com/cncf/landscape2
             twitter: https://twitter.com/CloudNativeFdn
           - name: StarRocks
