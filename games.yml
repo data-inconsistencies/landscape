@@ -48,6 +48,12 @@ quiz:
           correct: true
         - item: Modin
         - item: Apache Kafka
+    - title: "Which of these tests data quality in pipelines?"
+      options:
+        - item: Great Expectations
+          correct: true
+        - item: Apache Kafka
+        - item: Velox
     - title: "Which of these is an Apache Iceberg REST catalog?"
       options:
         - item: Apache Polaris
