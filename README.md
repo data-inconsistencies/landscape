@@ -1,9 +1,14 @@
-# data architecture landscape
+# Data lakehouse landscape
+
+https://data-inconsistencies.github.io/landscape/
+
+Projects and products for a data lakehouse with a SQL query engine, or with an analytics processing engine. Built from
+the CNCF cloud native landscape template. To add or fix an entry, follow [CLAUDE.md](CLAUDE.md) and open a pull request.
 
 ## toolstack overview
 
 - frontend
-    - landscape2 https://github.com/cncf/landscape2
+    - landscape2 https://github.com/cncf/landscape2 (version pinned in `scripts/install-landscape2.sh`)
 - dev/secops
     - make
     - age
@@ -18,16 +23,11 @@
 - zshell with oh-my-zsh and automatic loading of `.env` to environment variables
 - git client with ssh authentication
 - make
-- sops
-- age
+- sops (only for the secrets)
+- age (only for the secrets)
 - text editor of choice (Vscode?)
 
-> on osx brew is an easy package manager to get all the requirements 
-
-```bash
-brew install cncf/landscape2/landscape2
-# TODO add other tools
-```
+- python 3.9 or newer, for the checks
 
 ### steps
 
@@ -37,13 +37,12 @@ brew install cncf/landscape2/landscape2
 git clone git@github.com:data-inconsistencies/landscape.git
 cd landscape
 
-make secrets-decrypt
-```
-
-then read the readme there:
-
-```bash
+make setup
+scripts/install-landscape2.sh
+make test
 make build
 make serve
-make deploy
 ```
+
+Deploy with the Deploy workflow on GitHub. To deploy from your machine instead, run `make secrets-decrypt` so
+`GITHUB_TOKENS` is set, then `make deploy`.

@@ -4,21 +4,50 @@
 SOPS_AGE_RECIPIENTS := $(shell sh -c ./scripts/simplify-public-keys.sh)
 FILES_TO_ENCRYPT = .env
 
-## build the landscape
-.PHONY: build
-build:
-	landscape2 build --data-file data.yml --settings-file settings.yml --guide-file guide.yml --games-file games.yml --logos-path logos --output-dir build
+LANDSCAPE2 ?= $(if $(wildcard .venv/bin/landscape2),.venv/bin/landscape2,landscape2)
+PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
+export LANDSCAPE2
 
+.PHONY: setup
+## install the Python dependency of the checks into .venv
+setup:
+	python3 -m venv .venv && .venv/bin/pip install -q -r requirements.txt
+
+.PHONY: test
+## check the data, logos, guide, quiz and settings
+test:
+	$(PYTHON) -m unittest discover -s tests
+	$(PYTHON) scripts/check.py
+	$(LANDSCAPE2) validate data --data-file data.yml
+	$(LANDSCAPE2) validate settings --settings-file settings.yml
+	$(LANDSCAPE2) validate guide --guide-file guide.yml
+	$(LANDSCAPE2) validate games --games-file games.yml
+
+.PHONY: links
+## report dead links and archived or moved repositories (needs the network)
+links:
+	$(PYTHON) scripts/check_links.py
+
+.PHONY: build
+## build the landscape for local use
+build:
+	./scripts/build-site.sh
+
+.PHONY: build-public
+## build the landscape for data-inconsistencies.github.io/landscape
+build-public:
+	./scripts/build-site.sh public
 
 .PHONY: serve
-## serve the pre-bult landscape
+## serve the pre-built local landscape
 serve:
-	landscape2 serve --landscape-dir build
-
+	$(LANDSCAPE2) serve --landscape-dir build
 
 .PHONY: deploy
+## build the public site and publish it to gh-pages
 deploy:
 	./scripts/deploy.sh
+
 
 .PHONY: secrets-encrpyt
 ## encrypt secrets with SOPS and AGE
