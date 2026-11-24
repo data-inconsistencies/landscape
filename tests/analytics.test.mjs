@@ -97,6 +97,32 @@ test("Google Analytics waits for consent, then works, and stops when consent is 
   assert.equal(b.win[`ga-disable-${GA_ID}`], false);
 });
 
+// CookieHub 2.9.3 announces onAllow for a category once per page: not again after onRevoke.
+test("declining and then allowing on the same page starts it", () => {
+  const b = fakeBrowser();
+  start(b.win, b.doc);
+  b.win.consent.onStatusChange({}, {});
+  b.win.consent.onRevoke("analytics");
+  assert.equal(b.ga().length, 0);
+  b.win.allowed = true;
+  b.win.consent.onStatusChange({}, {});
+  assert.equal(b.ga().length, 1);
+  b.click("https://trino.io/");
+  assert.deepEqual(b.sent(), ["landscape_click"]);
+});
+
+test("allowing and then declining stops it, even without onRevoke", () => {
+  const b = fakeBrowser();
+  start(b.win, b.doc);
+  b.win.allowed = true;
+  b.win.consent.onAllow("analytics");
+  b.win.allowed = false;
+  b.win.consent.onStatusChange({}, {});
+  assert.equal(b.win[`ga-disable-${GA_ID}`], true);
+  b.click("https://trino.io/");
+  assert.deepEqual(b.sent(), []);
+});
+
 test("the consent cookie is set for the site it is on", () => {
   const b = fakeBrowser();
   start(b.win, b.doc);
