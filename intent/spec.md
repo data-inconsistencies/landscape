@@ -27,6 +27,8 @@ A project is left out when its repository is archived, or when it does not fit a
 - Open Table Format items are featured (larger), because they are what both kinds of lakehouse share.
 - The guide has one chapter per category and subcategory. Quiz options must be items in the landscape.
 - Public URL `https://data-inconsistencies.github.io/landscape/`, so the public build sets `url` and `base_path`.
+- The page requests `data/*.json` with a version that changes with the data, so a copy a browser cached before a deploy
+  is not used with the new page.
 - `404.html` is a copy of `index.html`, so direct visits to `/landscape/guide` and `/landscape/stats` work.
 
 ## Acceptance

@@ -12,7 +12,8 @@
 | 8 | CI: test and build every pull request; deploy only when a person starts it | `.github/workflows/` | workflow runs |
 | 9 | Working Netlify previews, no Netlify production site | `netlify.toml` | preview check on the pull request |
 | 10 | Data Quality and Observability layer, in both groups | `data.yml`, `logos/`, `settings.yml`, `guide.yml`, `games.yml` | `make test`, build, browser check |
-| 11 | CLAUDE.md and REVIEW.md | | none |
+| 11 | Versioned data files, so deploys do not leave items spinning | `scripts/version_data.py` | `make test`, caching browser check |
+| 12 | CLAUDE.md and REVIEW.md | | none |
 
 Riskiest step: 7, because it replaces everything on `gh-pages`.
 Left out: Crunchbase data, archived projects, a scheduled link check.
