@@ -26,6 +26,8 @@ work. Every change goes through a pull request that a person approves; never pus
 - landscape2 fetches `data/*.json` without a version and spins forever when an item is missing from it. GitHub Pages lets
   browsers cache files for 10 minutes, so `scripts/version_data.py` adds the version. Check it still works after a
   landscape2 update (`fetch("./data/full.json")` in its assets).
+- landscape2 links stop click events from bubbling and some are buttons that call `window.open`: track both in
+  `analytics/analytics.mjs`.
 - ASF podlings need "(Incubating)" in the name. Check https://whimsy.apache.org/public/public_podlings.json.
 
 ## Done means

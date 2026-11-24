@@ -17,6 +17,7 @@ setup:
 ## check the data, logos, guide, quiz and settings
 test:
 	$(PYTHON) -m unittest discover -s tests
+	node --test tests/*.test.mjs
 	$(PYTHON) scripts/check.py
 	$(LANDSCAPE2) validate data --data-file data.yml
 	$(LANDSCAPE2) validate settings --settings-file settings.yml

@@ -29,6 +29,8 @@ rm -rf build
     --logos-path logos --output-dir build
 
 python3 scripts/version_data.py build
+# Only the public site has analytics: not local builds, not previews.
+if [[ "${1:-}" == public ]]; then python3 scripts/add_analytics.py build; fi
 
 # GitHub Pages: no Jekyll, and let the app handle direct visits to pages such as /landscape/guide.
 touch build/.nojekyll

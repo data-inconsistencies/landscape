@@ -31,6 +31,13 @@ A project is left out when its repository is archived, or when it does not fit a
   is not used with the new page.
 - `404.html` is a copy of `index.html`, so direct visits to `/landscape/guide` and `/landscape/stats` work.
 
+## Analytics
+Public site only, and only after the visitor allows analytics in the CookieHub banner (the one the main site uses).
+If the banner is blocked, nothing is recorded. Google Analytics property: the main site's.
+- `landscape_click`: a link to another site, or to the main site. `link_url`, `link_type` (website, github, social,
+  main site, other), `item`, `category`, `subcategory`, `group` (tab), `page`.
+- `item_open`: an item's details are opened. `item`, `category`, `subcategory`, `group`.
+
 ## Acceptance
 - `make test` passes: our rules (`scripts/check.py`) and `landscape2 validate`.
 - `make build-public` succeeds with the pinned landscape2, and the output has no `127.0.0.1` address.

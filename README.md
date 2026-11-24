@@ -27,7 +27,7 @@ the CNCF cloud native landscape template. To add or fix an entry, follow [CLAUDE
 - age (only for the secrets)
 - text editor of choice (Vscode?)
 
-- python 3.9 or newer, for the checks
+- python 3.9 or newer and node 20 or newer, for the checks
 
 ### steps
 
