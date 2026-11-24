@@ -28,6 +28,8 @@ rm -rf build
 "$LANDSCAPE2" build --data-file data.yml --settings-file "$settings" --guide-file guide.yml --games-file games.yml \
     --logos-path logos --output-dir build
 
+python3 scripts/version_data.py build
+
 # GitHub Pages: no Jekyll, and let the app handle direct visits to pages such as /landscape/guide.
 touch build/.nojekyll
 cp build/index.html build/404.html
