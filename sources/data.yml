@@ -1,236 +1,824 @@
-# Landscape2 data
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cncf/landscape2/refs/heads/main/docs/config/schema/data.schema.json
+
+# Data lakehouse landscape: one entry per product, listed in its main layer. Use `second_path` to show it in
+# other layers too. Rules and the steps for adding an entry are in CLAUDE.md; `make test` checks them.
 #
-# This file contains the data that will be used to generate the landscape.
-#
-# Reference documentation: https://github.com/cncf/landscape2/blob/main/docs/config/data.yml
+# Reference documentation: https://github.com/cncf/landscape2/blob/v1.1.0/docs/config/data.yml
 
 categories:
-  - name: Compute (SQL)
+  - name: "Compute (SQL)"
     subcategories:
-      - name: Ingestion
+      - name: "Ingestion"
         items:
-          - name: Item 1
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 1
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: StarRocks
-            description: An OLAP engine
-            homepage_url: https://starrocks.io
-            logo: starrocks.png
-            repo_url: https://github.com/StarRocks/starrocks/
-          - name: Clickhouse
-            description: This is the description of item 3
+          - name: "Airbyte"
+            description: "Data movement platform with a large catalog of connectors that load APIs, databases and files into warehouses and lakes."
+            homepage_url: https://airbyte.com
+            logo: airbyte.svg
+            repo_url: https://github.com/airbytehq/airbyte
+          - name: "Apache Flink CDC"
+            description: "Streaming data integration tool built on Flink that captures database changes and writes them to lakehouse tables."
+            homepage_url: https://nightlies.apache.org/flink/flink-cdc-docs-stable/
+            logo: apache-flink-cdc.svg
+            repo_url: https://github.com/apache/flink-cdc
+          - name: "Apache Kafka"
+            description: "Distributed event streaming platform, often the source of real-time lakehouse ingestion."
+            homepage_url: https://kafka.apache.org/
+            logo: apache-kafka.svg
+            repo_url: https://github.com/apache/kafka
+            second_path:
+              - "Data Storage / Streaming Storage"
+          - name: "Apache NiFi"
+            description: "Visual system for routing, transforming and delivering data flows between systems."
+            homepage_url: https://nifi.apache.org/
+            logo: apache-nifi.svg
+            repo_url: https://github.com/apache/nifi
+          - name: "Apache SeaTunnel"
+            description: "Distributed data integration tool for batch and streaming synchronization between many sources and sinks."
+            homepage_url: https://seatunnel.apache.org/
+            logo: apache-seatunnel.svg
+            repo_url: https://github.com/apache/seatunnel
+          - name: "Debezium"
+            description: "Change data capture platform that streams row-level changes from databases."
+            homepage_url: https://debezium.io/
+            logo: debezium.svg
+            repo_url: https://github.com/debezium/debezium
+          - name: "Estuary"
+            description: "Managed platform for change data capture and streaming or batch pipelines."
+            homepage_url: https://estuary.dev/
+            logo: estuary.svg
+          - name: "Fivetran"
+            description: "Managed ELT service that replicates data from applications and databases into warehouses and lakes."
+            homepage_url: https://www.fivetran.com/
+            logo: fivetran.svg
+          - name: "ingestr"
+            description: "Command-line tool that copies data between databases and other sources with a single command."
+            homepage_url: https://getbruin.com/docs/ingestr/
+            logo: ingestr.svg
+            repo_url: https://github.com/bruin-data/ingestr
+          - name: "Onehouse"
+            description: "Managed lakehouse service for ingesting data and optimizing Apache Hudi, Apache Iceberg and Delta Lake tables."
+            homepage_url: https://www.onehouse.ai/
+            logo: onehouse.svg
+          - name: "Redpanda Connect"
+            description: "Declarative stream processor with connectors for moving data between streaming systems, databases and lakes."
+            homepage_url: https://docs.redpanda.com/connect/home/
+            logo: redpanda-connect.svg
+            repo_url: https://github.com/redpanda-data/connect
+          - name: "Sling"
+            description: "Command-line tool that extracts data from a source and loads it into a target database, warehouse or file store."
+            homepage_url: https://slingdata.io/
+            logo: sling.svg
+            repo_url: https://github.com/slingdata-io/sling-cli
+      - name: "Transformation"
+        items:
+          - name: "Apache Hive"
+            description: "SQL data warehouse system for large datasets in distributed storage, and the origin of the Hive Metastore."
+            homepage_url: https://hive.apache.org/
+            logo: apache-hive.svg
+            repo_url: https://github.com/apache/hive
+          - name: "Coalesce"
+            description: "Visual and code-based platform for building and governing SQL transformations."
+            homepage_url: https://coalesce.io/
+            logo: coalesce.svg
+          - name: "Dataform"
+            description: "Google Cloud service for developing, testing and scheduling SQL transformations in BigQuery."
+            homepage_url: https://cloud.google.com/dataform
+            logo: dataform.svg
+          - name: "dbt"
+            description: "Framework for building, testing and documenting SQL transformations with software engineering practices."
+            homepage_url: https://www.getdbt.com/
+            logo: dbt.svg
+            repo_url: https://github.com/dbt-labs/dbt
+          - name: "Materialize"
+            description: "Streaming SQL engine that keeps materialized views up to date as source data changes."
+            homepage_url: https://materialize.com/
+            logo: materialize.svg
+            repo_url: https://github.com/MaterializeInc/materialize
+          - name: "RisingWave"
+            description: "Streaming SQL engine that ingests, transforms and serves event streams, with Apache Iceberg support."
+            homepage_url: https://risingwave.com/
+            logo: risingwave.svg
+            repo_url: https://github.com/risingwavelabs/risingwave
+          - name: "SQLMesh"
+            description: "Data transformation framework with virtual environments and column-level lineage, compatible with dbt projects."
+            homepage_url: https://sqlmesh.readthedocs.io/en/stable/
+            logo: sqlmesh.svg
+            repo_url: https://github.com/SQLMesh/sqlmesh
+      - name: "Query"
+        items:
+          - name: "Amazon Athena"
+            description: "Serverless SQL query service for data in Amazon S3 and other sources."
+            homepage_url: https://aws.amazon.com/athena/
+            logo: amazon-athena.svg
+          - name: "Amazon Redshift"
+            description: "Cloud data warehouse from AWS that can also query open table formats in Amazon S3."
+            homepage_url: https://aws.amazon.com/redshift/
+            logo: amazon-redshift.svg
+          - name: "Apache Doris"
+            description: "Real-time analytical database that can also query data lakes directly."
+            homepage_url: https://doris.apache.org/
+            logo: apache-doris.svg
+            repo_url: https://github.com/apache/doris
+          - name: "Apache Drill"
+            description: "Schema-free SQL query engine for files, NoSQL stores and other self-describing data."
+            homepage_url: https://drill.apache.org/
+            logo: apache-drill.svg
+            repo_url: https://github.com/apache/drill
+          - name: "Apache Druid"
+            description: "Real-time analytics database for fast aggregations over streaming and historical event data."
+            homepage_url: https://druid.apache.org/
+            logo: apache-druid.svg
+            repo_url: https://github.com/apache/druid
+          - name: "Apache Impala"
+            description: "Distributed SQL query engine for data in HDFS, Apache Ozone and object stores."
+            homepage_url: https://impala.apache.org/
+            logo: apache-impala.svg
+            repo_url: https://github.com/apache/impala
+          - name: "Apache Kylin"
+            description: "OLAP engine that speeds up multidimensional analysis with precomputed cubes and indexes."
+            homepage_url: https://kylin.apache.org/
+            logo: apache-kylin.svg
+            repo_url: https://github.com/apache/kylin
+          - name: "Apache Kyuubi"
+            description: "Multi-tenant gateway that serves SQL over Spark, Flink, Trino and other engines."
+            homepage_url: https://kyuubi.apache.org/
+            logo: apache-kyuubi.svg
+            repo_url: https://github.com/apache/kyuubi
+          - name: "Apache Pinot"
+            description: "Real-time analytics database built for low-latency, user-facing queries."
+            homepage_url: https://pinot.apache.org/
+            logo: apache-pinot.svg
+            repo_url: https://github.com/apache/pinot
+          - name: "ClickHouse"
+            description: "Column-oriented analytical database that can also query open table formats in object storage."
             homepage_url: https://clickhouse.com/
-            logo: clickhouse.png
+            logo: clickhouse.svg
             repo_url: https://github.com/ClickHouse/ClickHouse
-      - name: Transformation
-        items:
-          - name: Item 4
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 4
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 5
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 5
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-      - name: Query
-        items:
-          - name: Item 4
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 4
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-            project: hudi
-          - name: Item 5
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 5
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            format: hudi
-            repo_url: https://github.com/cncf/landscape2
-  - name: Compute (Python)
+          - name: "Databricks SQL"
+            description: "SQL warehouse on the Databricks lakehouse platform."
+            homepage_url: https://www.databricks.com/product/databricks-lakehouse
+            logo: databricks-sql.svg
+          - name: "Dremio"
+            description: "Lakehouse platform and SQL query engine built around Apache Iceberg and Apache Arrow."
+            homepage_url: https://www.dremio.com/
+            logo: dremio.svg
+            repo_url: https://github.com/dremio/dremio-oss
+          - name: "Firebolt"
+            description: "Analytical data warehouse aimed at low-latency, high-concurrency queries."
+            homepage_url: https://www.firebolt.io/
+            logo: firebolt.svg
+          - name: "Google BigQuery"
+            description: "Serverless data warehouse from Google Cloud that can also query open table formats."
+            homepage_url: https://cloud.google.com/bigquery
+            logo: google-bigquery.svg
+          - name: "Microsoft Fabric"
+            description: "Microsoft analytics platform that combines lakehouse, warehouse, data engineering and BI on OneLake."
+            homepage_url: https://www.microsoft.com/en-us/microsoft-fabric
+            logo: microsoft-fabric.svg
+          - name: "MotherDuck"
+            description: "Managed cloud data warehouse built on DuckDB."
+            homepage_url: https://motherduck.com/
+            logo: motherduck.svg
+          - name: "Presto"
+            description: "Distributed SQL query engine for querying data where it lives, hosted by the Linux Foundation's Presto Foundation."
+            homepage_url: https://prestodb.io/
+            logo: presto.svg
+            repo_url: https://github.com/prestodb/presto
+          - name: "SingleStore"
+            description: "Distributed SQL database that combines transactional and analytical workloads."
+            homepage_url: https://www.singlestore.com/
+            logo: singlestore.svg
+          - name: "Snowflake"
+            description: "Cloud data platform with a SQL engine that works on its own storage and on Apache Iceberg tables."
+            homepage_url: https://www.snowflake.com/
+            logo: snowflake.svg
+          - name: "Starburst"
+            description: "Commercial lakehouse platform built on Trino."
+            homepage_url: https://www.starburst.io/
+            logo: starburst.svg
+          - name: "StarRocks"
+            description: "Distributed SQL engine for low-latency analytics on and off the data lakehouse, hosted by the Linux Foundation."
+            homepage_url: https://www.starrocks.io/
+            logo: starrocks.svg
+            repo_url: https://github.com/StarRocks/starrocks
+          - name: "Trino"
+            description: "Distributed SQL query engine for querying data across lakes, warehouses and databases."
+            homepage_url: https://trino.io/
+            logo: trino.svg
+            repo_url: https://github.com/trinodb/trino
+  - name: "Compute (Python)"
     subcategories:
-      - name: Ingestion
+      - name: "Ingestion"
         items:
-          - name: Item 1
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 1
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 2
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 2
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: sandbox
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 3
-            description: This is the description of item 3
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-      - name: Transformation
+          - name: "dlt"
+            description: "Python library that loads data from APIs, databases and files into structured datasets."
+            homepage_url: https://dlthub.com/docs/intro
+            logo: dlt.svg
+            repo_url: https://github.com/dlt-hub/dlt
+          - name: "Meltano"
+            description: "Code-first data integration engine based on Singer taps and targets."
+            homepage_url: https://meltano.com/
+            logo: meltano.svg
+            repo_url: https://github.com/meltano/meltano
+          - name: "Pathway"
+            description: "Python ETL framework for stream processing and real-time analytics."
+            homepage_url: https://pathway.com/
+            logo: pathway.svg
+            repo_url: https://github.com/pathwaycom/pathway
+          - name: "Quix Streams"
+            description: "Python library for processing Kafka data with streaming DataFrames."
+            homepage_url: https://quix.io/docs/quix-streams/introduction.html
+            logo: quix-streams.svg
+            repo_url: https://github.com/quixio/quix-streams
+      - name: "Transformation"
         items:
-          - name: Item 4
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 4
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 5
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 5
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-      - name: Query
+          - name: "Apache Beam"
+            description: "Unified programming model for batch and streaming pipelines that run on several engines."
+            homepage_url: https://beam.apache.org/
+            logo: apache-beam.svg
+            repo_url: https://github.com/apache/beam
+          - name: "Apache Flink"
+            description: "Distributed engine for stateful stream and batch processing, with Java, Python and SQL APIs."
+            homepage_url: https://flink.apache.org/
+            logo: apache-flink.svg
+            repo_url: https://github.com/apache/flink
+            second_path:
+              - "Compute (SQL) / Transformation"
+          - name: "Apache Spark"
+            description: "Unified engine for large-scale data processing, with Python, SQL, Scala, Java and R APIs."
+            homepage_url: https://spark.apache.org/
+            logo: apache-spark.svg
+            repo_url: https://github.com/apache/spark
+            second_path:
+              - "Compute (SQL) / Transformation"
+          - name: "Bodo"
+            description: "Engine that scales Python and SQL data processing with just-in-time compilation and MPI-based parallelism."
+            homepage_url: https://www.bodo.ai/
+            logo: bodo.svg
+            repo_url: https://github.com/bodo-ai/Bodo
+          - name: "cuDF"
+            description: "GPU DataFrame library that accelerates pandas, Polars and Spark workloads."
+            homepage_url: https://docs.nvidia.com/cudf/latest/
+            logo: cudf.svg
+            repo_url: https://github.com/NVIDIA/cudf
+          - name: "Daft"
+            description: "DataFrame engine for structured and multimodal data that runs locally or on a Ray cluster."
+            homepage_url: https://www.daft.ai/
+            logo: daft.svg
+            repo_url: https://github.com/Eventual-Inc/Daft
+          - name: "Dask"
+            description: "Parallel computing library that scales NumPy, pandas and custom Python code."
+            homepage_url: https://dask.org/
+            logo: dask.svg
+            repo_url: https://github.com/dask/dask
+          - name: "Ibis"
+            description: "Portable Python DataFrame API that runs on many SQL and DataFrame engines."
+            homepage_url: https://ibis-project.org/
+            logo: ibis.svg
+            repo_url: https://github.com/ibis-project/ibis
+          - name: "Modin"
+            description: "Drop-in pandas replacement that spreads work over cores or a cluster with Ray or Dask."
+            homepage_url: https://modin.readthedocs.io/
+            logo: modin.svg
+            repo_url: https://github.com/modin-project/modin
+          - name: "Narwhals"
+            description: "Lightweight compatibility layer between DataFrame libraries."
+            homepage_url: https://narwhals-dev.github.io/narwhals/
+            logo: narwhals.svg
+            repo_url: https://github.com/narwhals-dev/narwhals
+          - name: "pandas"
+            description: "Python library for data analysis and manipulation with labeled tabular data."
+            homepage_url: https://pandas.pydata.org/
+            logo: pandas.svg
+            repo_url: https://github.com/pandas-dev/pandas
+          - name: "Polars"
+            description: "Fast DataFrame query engine written in Rust, with lazy and streaming execution."
+            homepage_url: https://pola.rs/
+            logo: polars.svg
+            repo_url: https://github.com/pola-rs/polars
+          - name: "Ray"
+            description: "Distributed compute framework for Python and AI workloads, including the Ray Data library."
+            homepage_url: https://www.ray.io/
+            logo: ray.svg
+            repo_url: https://github.com/ray-project/ray
+          - name: "Sail"
+            description: "Spark-compatible compute engine written in Rust for batch and stream processing."
+            homepage_url: https://lakesail.com/
+            logo: sail.svg
+            repo_url: https://github.com/lakehq/sail
+      - name: "Query"
         items:
-          - name: Item 4
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 4
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 5
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 5
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            repo_url: https://github.com/cncf/landscape2
-  - name: Data Catalog
+          - name: "Apache DataFusion"
+            description: "Extensible query engine written in Rust on Apache Arrow, with SQL, DataFrame and Python APIs."
+            homepage_url: https://datafusion.apache.org/
+            logo: apache-datafusion.svg
+            repo_url: https://github.com/apache/datafusion
+            second_path:
+              - "Compute (SQL) / Query"
+          - name: "chDB"
+            description: "In-process SQL OLAP engine for Python powered by ClickHouse."
+            homepage_url: https://clickhouse.com/chdb
+            logo: chdb.svg
+            repo_url: https://github.com/chdb-io/chdb
+          - name: "DuckDB"
+            description: "In-process analytical SQL database with first-class Python support and table-format extensions."
+            homepage_url: https://duckdb.org/
+            logo: duckdb.svg
+            repo_url: https://github.com/duckdb/duckdb
+            second_path:
+              - "Compute (SQL) / Query"
+          - name: "LanceDB"
+            description: "Embedded retrieval library for multimodal data, built on the Lance format."
+            homepage_url: https://www.lancedb.com/
+            logo: lancedb.svg
+            repo_url: https://github.com/lancedb/lancedb
+          - name: "PyIceberg"
+            description: "Python library for reading and writing Apache Iceberg tables without a JVM."
+            homepage_url: https://py.iceberg.apache.org/
+            logo: apache-iceberg.svg
+            repo_url: https://github.com/apache/iceberg-python
+      - name: "Execution Acceleration"
+        items:
+          - name: "Apache DataFusion Comet"
+            description: "Spark accelerator that runs supported operators natively with Apache DataFusion."
+            homepage_url: https://datafusion.apache.org/comet/
+            logo: apache-datafusion-comet.svg
+            repo_url: https://github.com/apache/datafusion-comet
+          - name: "Apache Gluten"
+            description: "Middle layer that offloads JVM-based SQL engines such as Spark to native engines."
+            homepage_url: https://gluten.apache.org/
+            logo: apache-gluten.svg
+            repo_url: https://github.com/apache/gluten
+          - name: "Velox"
+            description: "Composable C++ execution engine library for data management systems."
+            homepage_url: https://velox-lib.io/
+            logo: velox.svg
+            repo_url: https://github.com/facebookincubator/velox
+  - name: "Data Catalog"
     subcategories:
-      - name: Apache Hudi
+      - name: "Apache Hudi"
         items:
-          - name: Item 6
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 6
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 7
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 7
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: sandbox
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 8
-            description: This is the description of item 8
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-      - name: Apache Iceberg
+          - name: "AWS Glue Data Catalog"
+            description: "Managed metadata catalog on AWS that supports Apache Hudi, Apache Iceberg and Delta Lake tables."
+            homepage_url: https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html
+            logo: aws-glue-data-catalog.svg
+            second_path:
+              - "Data Catalog / Apache Iceberg"
+              - "Data Catalog / Delta Lake"
+          - name: "Hive Metastore"
+            description: "Table metadata service from Apache Hive, supported by many engines and table formats."
+            homepage_url: https://hive.apache.org/
+            logo: apache-hive.svg
+            repo_url: https://github.com/apache/hive
+            second_path:
+              - "Data Catalog / Apache Iceberg"
+              - "Data Catalog / Delta Lake"
+      - name: "Apache Iceberg"
         items:
-          - name: Item 6
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 6
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 7
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 7
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: sandbox
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 8
-            description: This is the description of item 8
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-      - name: Delta Lake
+          - name: "Apache Gravitino"
+            description: "Federated metadata catalog that manages metadata across sources, regions and table formats."
+            homepage_url: https://gravitino.apache.org/
+            logo: apache-gravitino.svg
+            repo_url: https://github.com/apache/gravitino
+            second_path:
+              - "Data Catalog / Apache Hudi"
+          - name: "Apache Polaris"
+            description: "Open source catalog for Apache Iceberg that implements the Iceberg REST API."
+            homepage_url: https://polaris.apache.org/
+            logo: apache-polaris.svg
+            repo_url: https://github.com/apache/polaris
+          - name: "Lakekeeper"
+            description: "Apache Iceberg REST catalog written in Rust, with access control and credential vending."
+            homepage_url: https://docs.lakekeeper.io/
+            logo: lakekeeper.svg
+            repo_url: https://github.com/lakekeeper/lakekeeper
+          - name: "Snowflake Open Catalog"
+            description: "Managed service for Apache Polaris from Snowflake."
+            homepage_url: https://docs.snowflake.com/en/user-guide/opencatalog/overview
+            logo: snowflake.svg
+      - name: "Delta Lake"
         items:
-          - name: Item 6
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 6
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 7
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 7
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: sandbox
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 8
-            description: This is the description of item 8
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-  - name: Data Table Format
+          - name: "Unity Catalog"
+            description: "Open catalog for data and AI assets that serves Delta Lake and Apache Iceberg clients."
+            homepage_url: https://unitycatalog.io/
+            logo: unity-catalog.svg
+            repo_url: https://github.com/unitycatalog/unitycatalog
+            second_path:
+              - "Data Catalog / Apache Iceberg"
+      - name: "Git-like Versioning"
+        items:
+          - name: "lakeFS"
+            description: "Data version control that adds Git-like branches, commits and merges to object storage."
+            homepage_url: https://lakefs.io/
+            logo: lakefs.svg
+            repo_url: https://github.com/treeverse/lakeFS
+          - name: "Project Nessie"
+            description: "Transactional catalog for data lakes with Git-like branches, tags and time travel."
+            homepage_url: https://projectnessie.org/
+            logo: project-nessie.svg
+            repo_url: https://github.com/projectnessie/nessie
+            second_path:
+              - "Data Catalog / Apache Iceberg"
+      - name: "Metadata"
+        items:
+          - name: "Alation"
+            description: "Commercial data catalog and governance platform."
+            homepage_url: https://www.alation.com/
+            logo: alation.svg
+          - name: "Apache Atlas"
+            description: "Metadata management and governance for the Hadoop ecosystem and beyond."
+            homepage_url: https://atlas.apache.org/
+            logo: apache-atlas.svg
+            repo_url: https://github.com/apache/atlas
+          - name: "Atlan"
+            description: "Commercial metadata platform for data discovery, lineage and governance."
+            homepage_url: https://atlan.com/
+            logo: atlan.svg
+          - name: "Collibra"
+            description: "Commercial platform for data governance, cataloging and quality."
+            homepage_url: https://www.collibra.com/
+            logo: collibra.svg
+          - name: "DataHub"
+            description: "Metadata platform for data discovery, observability and governance."
+            homepage_url: https://datahub.com/
+            logo: datahub.svg
+            repo_url: https://github.com/datahub-project/datahub
+            twitter: https://x.com/datahubproject
+          - name: "Egeria"
+            description: "Open metadata and governance standards and services for exchanging metadata between tools."
+            homepage_url: https://egeria-project.org/
+            logo: egeria.svg
+            repo_url: https://github.com/odpi/egeria
+          - name: "Marquez"
+            description: "Service that collects and visualizes lineage metadata, and the reference implementation of OpenLineage."
+            homepage_url: https://marquezproject.ai/
+            logo: marquez.svg
+            repo_url: https://github.com/MarquezProject/marquez
+          - name: "OpenLineage"
+            description: "Open standard for collecting lineage metadata from data pipelines."
+            homepage_url: https://openlineage.io/
+            logo: openlineage.svg
+            repo_url: https://github.com/OpenLineage/OpenLineage
+          - name: "OpenMetadata"
+            description: "Unified metadata platform for data discovery, observability, quality and governance."
+            homepage_url: https://open-metadata.org/
+            logo: openmetadata.svg
+            repo_url: https://github.com/open-metadata/OpenMetadata
+            twitter: https://x.com/open_metadata
+  - name: "Data Table Format"
     subcategories:
-      - name: Open Table Format
+      - name: "Open Table Format"
         items:
-          - name: Apache Hudi
-            description: This is the description of item 6
+          - name: "Apache Hudi"
+            description: "Lakehouse table format and platform built for upserts, deletes and incremental processing."
             homepage_url: https://hudi.apache.org/
-            logo: apachehudi.png
+            logo: apache-hudi.svg
             repo_url: https://github.com/apache/hudi
-          - name: Apache Iceberg
-            description: This is the description of item 7
+          - name: "Apache Iceberg"
+            description: "Open table format for huge analytic tables, with schema and partition evolution and time travel."
             homepage_url: https://iceberg.apache.org/
-            logo: cncf.svg
+            logo: apache-iceberg.svg
             repo_url: https://github.com/apache/iceberg
-          - name: Delta Lake
-            description: This is the description of item 8
+          - name: "Apache Paimon"
+            description: "Lake format for real-time lakehouses, built for streaming and batch work with Flink and Spark."
+            homepage_url: https://paimon.apache.org/
+            logo: apache-paimon.svg
+            repo_url: https://github.com/apache/paimon
+          - name: "Delta Lake"
+            description: "Open table format that brings ACID transactions, time travel and schema enforcement to data lakes."
             homepage_url: https://delta.io/
-            logo: deltalake.png
+            logo: delta-lake.svg
             repo_url: https://github.com/delta-io/delta
-  - name: Data Storage
+          - name: "DuckLake"
+            description: "Integrated lake and catalog format that keeps metadata in a SQL database and data in Parquet files."
+            homepage_url: https://ducklake.select/
+            logo: ducklake.svg
+            repo_url: https://github.com/duckdb/ducklake
+          - name: "Lance"
+            description: "Open lakehouse format for multimodal AI data with fast random access and vector indexes."
+            homepage_url: https://lance.org/
+            logo: lance.svg
+            repo_url: https://github.com/lance-format/lance
+      - name: "Interoperability"
+        items:
+          - name: "Apache XTable (Incubating)"
+            description: "Converts table metadata between Apache Hudi, Apache Iceberg and Delta Lake without copying data."
+            homepage_url: https://xtable.apache.org/
+            logo: apache-xtable.svg
+            repo_url: https://github.com/apache/incubator-xtable
+      - name: "File Format"
+        items:
+          - name: "Apache Arrow"
+            description: "Columnar in-memory format and toolbox for fast data interchange between systems."
+            homepage_url: https://arrow.apache.org/
+            logo: apache-arrow.svg
+            repo_url: https://github.com/apache/arrow
+          - name: "Apache Avro"
+            description: "Row-oriented data serialization system with rich schemas, common in streaming and table metadata."
+            homepage_url: https://avro.apache.org/
+            logo: apache-avro.svg
+            repo_url: https://github.com/apache/avro
+          - name: "Apache ORC"
+            description: "Compressed columnar file format designed for Hadoop workloads."
+            homepage_url: https://orc.apache.org/
+            logo: apache-orc.svg
+            repo_url: https://github.com/apache/orc
+          - name: "Apache Parquet"
+            description: "Columnar file format with efficient compression, the default for most lakehouse tables."
+            homepage_url: https://parquet.apache.org/
+            logo: apache-parquet.svg
+            repo_url: https://github.com/apache/parquet-format
+          - name: "Vortex"
+            description: "Extensible columnar file format and compression framework."
+            homepage_url: https://vortex.dev/
+            logo: vortex.svg
+            repo_url: https://github.com/vortex-data/vortex
+  - name: "Data Storage"
     subcategories:
-      - name: Object Store
+      - name: "Object Store"
         items:
-          - name: Item 6
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 6
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: graduated
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 7
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 7
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            project: sandbox
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
-          - name: Item 8
-            description: This is the description of item 8
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-      - name: HDFS
+          - name: "Amazon S3"
+            description: "Object storage service from AWS, including S3 Tables for managed Apache Iceberg tables."
+            homepage_url: https://aws.amazon.com/s3/
+            logo: amazon-s3.svg
+          - name: "Azure Data Lake Storage"
+            description: "Hierarchical object storage for analytics, built on Azure Blob Storage."
+            homepage_url: https://azure.microsoft.com/en-us/products/storage/data-lake-storage
+            logo: azure-data-lake-storage.svg
+          - name: "Ceph"
+            description: "Distributed object, block and file storage platform with an S3-compatible gateway."
+            homepage_url: https://ceph.io/en/
+            logo: ceph.svg
+            repo_url: https://github.com/ceph/ceph
+          - name: "Cloudflare R2"
+            description: "S3-compatible object storage without egress fees."
+            homepage_url: https://www.cloudflare.com/products/r2/
+            logo: cloudflare-r2.svg
+          - name: "Garage"
+            description: "S3-compatible object store for small, self-hosted, geo-distributed deployments."
+            homepage_url: https://garagehq.deuxfleurs.fr/
+            logo: garage.svg
+            repo_url: https://github.com/deuxfleurs-org/garage
+          - name: "Google Cloud Storage"
+            description: "Object storage service from Google Cloud."
+            homepage_url: https://cloud.google.com/storage
+            logo: google-cloud-storage.svg
+          - name: "MinIO AIStor"
+            description: "Commercial S3-compatible object store from MinIO. The former open source minio/minio repository is archived."
+            homepage_url: https://www.min.io/
+            logo: minio-aistor.svg
+          - name: "RustFS"
+            description: "S3-compatible distributed object storage written in Rust."
+            homepage_url: https://rustfs.com/
+            logo: rustfs.svg
+            repo_url: https://github.com/rustfs/rustfs
+          - name: "SeaweedFS"
+            description: "Distributed storage system for objects, files and Iceberg tables with an S3 API."
+            homepage_url: https://seaweedfs.com/
+            logo: seaweedfs.svg
+            repo_url: https://github.com/seaweedfs/seaweedfs
+          - name: "Tigris"
+            description: "Globally distributed, S3-compatible object storage service."
+            homepage_url: https://www.tigrisdata.com/
+            logo: tigris.svg
+      - name: "HDFS"
         items:
-          - item:
-            crunchbase: https://www.crunchbase.com/organization/cloud-native-computing-foundation
-            description: This is the description of item 9
-            homepage_url: https://cncf.io
-            logo: cncf.svg
-            name: Item 9
-            repo_url: https://github.com/cncf/landscape2
-            twitter: https://twitter.com/CloudNativeFdn
+          - name: "Apache Hadoop"
+            description: "Distributed computing framework that includes the Hadoop Distributed File System (HDFS)."
+            homepage_url: https://hadoop.apache.org/
+            logo: apache-hadoop.svg
+            repo_url: https://github.com/apache/hadoop
+          - name: "Apache Ozone"
+            description: "Scalable object store for Hadoop and analytics workloads, with HDFS- and S3-compatible APIs."
+            homepage_url: https://ozone.apache.org/
+            logo: apache-ozone.svg
+            repo_url: https://github.com/apache/ozone
+            second_path:
+              - "Data Storage / Object Store"
+      - name: "Cache and File System"
+        items:
+          - name: "Alluxio"
+            description: "Data access and caching layer between compute engines and storage systems."
+            homepage_url: https://www.alluxio.io/
+            logo: alluxio.svg
+            repo_url: https://github.com/Alluxio/alluxio
+          - name: "JuiceFS"
+            description: "Distributed POSIX file system that keeps data in object storage and metadata in a database."
+            homepage_url: https://juicefs.com/
+            logo: juicefs.svg
+            repo_url: https://github.com/juicedata/juicefs
+      - name: "Streaming Storage"
+        items:
+          - name: "Apache Fluss"
+            description: "Streaming storage for real-time analytics that can tier data into lakehouse tables."
+            homepage_url: https://fluss.apache.org/
+            logo: apache-fluss.svg
+            repo_url: https://github.com/apache/fluss
+  - name: "Data Orchestration"
+    subcategories:
+      - name: "Asset Aware"
+        items:
+          - name: "Apache Hamilton (Incubating)"
+            description: "Python framework that defines testable, self-documenting dataflows as functions."
+            homepage_url: https://hamilton.apache.org/
+            logo: apache-hamilton.svg
+            repo_url: https://github.com/apache/hamilton
+          - name: "Dagster"
+            description: "Orchestration platform for developing, running and observing data assets, with integrated lineage."
+            homepage_url: https://dagster.io/
+            logo: dagster.svg
+            repo_url: https://github.com/dagster-io/dagster
+            twitter: https://x.com/dagster
+          - name: "Kedro"
+            description: "Python framework for production-ready data pipelines organized around a catalog of datasets."
+            homepage_url: https://kedro.org/
+            logo: kedro.svg
+            repo_url: https://github.com/kedro-org/kedro
+      - name: "Task Based"
+        items:
+          - name: "Apache Airflow"
+            description: "Platform to author, schedule and monitor workflows in Python, with data assets since version 3."
+            homepage_url: https://airflow.apache.org/
+            logo: apache-airflow.svg
+            repo_url: https://github.com/apache/airflow
+            second_path:
+              - "Data Orchestration / Asset Aware"
+          - name: "Apache DolphinScheduler"
+            description: "Distributed workflow scheduler with a visual editor."
+            homepage_url: https://dolphinscheduler.apache.org/
+            logo: apache-dolphinscheduler.svg
+            repo_url: https://github.com/apache/dolphinscheduler
+          - name: "Argo Workflows"
+            description: "Container-native workflow engine for Kubernetes."
+            homepage_url: https://argoproj.github.io/workflows/
+            logo: argo-workflows.svg
+            repo_url: https://github.com/argoproj/argo-workflows
+          - name: "Flyte"
+            description: "Type-safe workflow orchestrator for data and machine learning on Kubernetes."
+            homepage_url: https://flyte.org/
+            logo: flyte.svg
+            repo_url: https://github.com/flyteorg/flyte
+          - name: "Kestra"
+            description: "Declarative orchestrator that defines event-driven and scheduled workflows in YAML."
+            homepage_url: https://kestra.io/
+            logo: kestra.svg
+            repo_url: https://github.com/kestra-io/kestra
+          - name: "Luigi"
+            description: "Python module from Spotify for building pipelines of batch jobs."
+            homepage_url: https://luigi.readthedocs.io/
+            logo: luigi.svg
+            repo_url: https://github.com/spotify/luigi
+          - name: "Mage"
+            description: "Tool for building, running and managing data pipelines in a notebook-style editor."
+            homepage_url: https://www.mage.ai/
+            logo: mage.svg
+            repo_url: https://github.com/mage-ai/mage-ai
+          - name: "Metaflow"
+            description: "Python framework, created at Netflix, for building and managing data science and AI workflows."
+            homepage_url: https://metaflow.org/
+            logo: metaflow.svg
+            repo_url: https://github.com/Netflix/metaflow
+          - name: "Prefect"
+            description: "Python workflow orchestration framework for building resilient data pipelines."
+            homepage_url: https://www.prefect.io/
+            logo: prefect.svg
+            repo_url: https://github.com/PrefectHQ/prefect
+  - name: "BI and Visualization"
+    subcategories:
+      - name: "Traditional"
+        items:
+          - name: "Apache Superset"
+            description: "Data exploration and visualization platform with dashboards and a SQL editor."
+            homepage_url: https://superset.apache.org/
+            logo: apache-superset.svg
+            repo_url: https://github.com/apache/superset
+          - name: "Grafana"
+            description: "Dashboard and visualization platform for metrics, logs and SQL data sources."
+            homepage_url: https://grafana.com/
+            logo: grafana.svg
+            repo_url: https://github.com/grafana/grafana
+          - name: "Looker"
+            description: "BI platform from Google Cloud built on LookML models."
+            homepage_url: https://cloud.google.com/looker
+            logo: looker.svg
+          - name: "Metabase"
+            description: "BI tool that lets people ask questions of data without writing SQL."
+            homepage_url: https://www.metabase.com/
+            logo: metabase.svg
+            repo_url: https://github.com/metabase/metabase
+          - name: "Power BI"
+            description: "Microsoft's BI platform for reports, dashboards and semantic models."
+            homepage_url: https://www.microsoft.com/en-us/microsoft-fabric/features/power-bi
+            logo: power-bi.svg
+          - name: "Qlik"
+            description: "Commercial platform for analytics and data integration."
+            homepage_url: https://www.qlik.com/us
+            logo: qlik.svg
+          - name: "Redash"
+            description: "SQL-first tool for querying data sources, visualizing results and sharing dashboards."
+            homepage_url: https://redash.io/
+            logo: redash.svg
+            repo_url: https://github.com/getredash/redash
+          - name: "Sigma"
+            description: "Cloud BI tool with a spreadsheet interface that queries the warehouse directly."
+            homepage_url: https://www.sigmacomputing.com/
+            logo: sigma.svg
+          - name: "Tableau"
+            description: "Visual analytics platform from Salesforce."
+            homepage_url: https://www.tableau.com/
+            logo: tableau.svg
+          - name: "ThoughtSpot"
+            description: "Search- and AI-driven analytics platform."
+            homepage_url: https://www.thoughtspot.com/
+            logo: thoughtspot.svg
+      - name: "As Code"
+        items:
+          - name: "Apache Zeppelin"
+            description: "Web notebook for interactive analytics with SQL, Scala, Python and more."
+            homepage_url: https://zeppelin.apache.org/
+            logo: apache-zeppelin.svg
+            repo_url: https://github.com/apache/zeppelin
+          - name: "Dash"
+            description: "Framework from Plotly for building data apps and dashboards in Python."
+            homepage_url: https://dash.plotly.com/
+            logo: dash.svg
+            repo_url: https://github.com/plotly/dash
+          - name: "Evidence"
+            description: "BI as code: builds reports and data apps from SQL and Markdown."
+            homepage_url: https://evidence.dev/
+            logo: evidence.svg
+            repo_url: https://github.com/evidence-dev/evidence
+          - name: "Jupyter"
+            description: "Interactive notebooks for code, data and visualizations."
+            homepage_url: https://jupyter.org/
+            logo: jupyter.svg
+            repo_url: https://github.com/jupyter/notebook
+          - name: "Lightdash"
+            description: "Open source BI that turns dbt projects into metrics and dashboards."
+            homepage_url: https://www.lightdash.com/
+            logo: lightdash.svg
+            repo_url: https://github.com/lightdash/lightdash
+          - name: "marimo"
+            description: "Reactive Python notebook stored as pure Python that can run as a script or app."
+            homepage_url: https://marimo.io/
+            logo: marimo.svg
+            repo_url: https://github.com/marimo-team/marimo
+          - name: "Observable Framework"
+            description: "Static site generator for data apps, dashboards and reports."
+            homepage_url: https://observablehq.com/framework/
+            logo: observable-framework.svg
+            repo_url: https://github.com/observablehq/framework
+          - name: "Rill"
+            description: "BI as code tool that builds fast dashboards from SQL and YAML on an embedded OLAP engine."
+            homepage_url: https://www.rilldata.com/
+            logo: rill.svg
+            repo_url: https://github.com/rilldata/rill
+          - name: "Streamlit"
+            description: "Framework for turning Python scripts into data apps and dashboards."
+            homepage_url: https://streamlit.io/
+            logo: streamlit.svg
+            repo_url: https://github.com/streamlit/streamlit
+  - name: "Semantic Layer"
+    subcategories:
+      - name: "Closed"
+        items:
+          - name: "AtScale"
+            description: "Commercial semantic layer that serves governed metrics to BI tools and AI."
+            homepage_url: https://www.atscale.com/
+            logo: atscale.svg
+          - name: "dbt Semantic Layer"
+            description: "Hosted service in the dbt platform that serves metrics defined with MetricFlow."
+            homepage_url: https://www.getdbt.com/product/semantic-layer
+            logo: dbt.svg
+          - name: "LookML"
+            description: "Looker's language for describing dimensions, measures and relationships."
+            homepage_url: https://docs.cloud.google.com/looker/docs/what-is-lookml
+            logo: looker.svg
+      - name: "Open"
+        items:
+          - name: "Boring Semantic Layer"
+            description: "Lightweight Python semantic layer built on Ibis."
+            homepage_url: https://github.com/boringdata/boring-semantic-layer
+            logo: boring-semantic-layer.svg
+            repo_url: https://github.com/boringdata/boring-semantic-layer
+          - name: "Cube"
+            description: "Open source semantic layer for AI, BI and embedded analytics."
+            homepage_url: https://cube.dev/
+            logo: cube.svg
+            repo_url: https://github.com/cube-js/cube
+            twitter: https://x.com/the_cube_dev
+          - name: "Malloy"
+            description: "Open source language for describing data relationships and transformations."
+            homepage_url: https://www.malloydata.dev/
+            logo: malloy.svg
+            repo_url: https://github.com/malloydata/malloy
+          - name: "MetricFlow"
+            description: "Framework for defining metrics in code and generating the SQL to compute them."
+            homepage_url: https://docs.getdbt.com/docs/build/about-metricflow
+            logo: dbt.svg
+            repo_url: https://github.com/dbt-labs/metricflow
+          - name: "Wren AI"
+            description: "Text-to-SQL engine for AI agents with a governed semantic layer."
+            homepage_url: https://www.getwren.ai/
+            logo: wren-ai.svg
+            repo_url: https://github.com/Canner/WrenAI

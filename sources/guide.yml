@@ -1,32 +1,145 @@
-# Landscape2 guide
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cncf/landscape2/refs/heads/main/docs/config/schema/guide.schema.json
+
+# Landscape2 guide. Category and subcategory names match data.yml, so each chapter lists its items.
 #
-# This file allows defining the content of the landscape guide.
-#
-# Reference documentation: https://github.com/cncf/landscape2/blob/main/docs/config/guide.yml
+# Reference documentation: https://github.com/cncf/landscape2/blob/v1.1.0/docs/config/guide.yml
 
 categories:
-  - category: "Category 1"
+  - category: "Introduction"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+      A data lakehouse keeps data in open formats on cheap storage and lets many engines work on the same tables.
+      This landscape maps the layers you need and the projects and products that fill them.
     subcategories:
-      - subcategory: "Subcategory 1-1"
+      - subcategory: "Two kinds of lakehouse"
         content: |
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          The landscape has two tabs. They share storage, table format, catalog, orchestration, BI and semantic
+          layers, and differ in how data is computed:
 
-      - subcategory: "Subcategory 1-2"
+          * **Data Lakehouse with SQL Query Engine**: people and tools work in SQL, and a query engine serves them.
+          * **Data Lakehouse with Analytics Processing Engine**: people work in Python or DataFrames, and a processing engine runs their code.
+
+          Many teams run both on the same tables.
+      - subcategory: "How to read it"
         content: |
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Start at the table format. It decides which catalogs and engines can work together. An item can appear in
+          more than one layer. White boxes are open source according to the license GitHub reports for the listed
+          repository; gray boxes are everything else.
+      - subcategory: "Add or fix an entry"
+        content: |
+          Open a pull request at [data-inconsistencies/landscape](https://github.com/data-inconsistencies/landscape).
+          Being listed is not an endorsement.
 
-  - category: "Category 2"
+  - category: "Compute (SQL)"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+      Engines and tools where SQL is the main interface.
     subcategories:
-      - subcategory: "Subcategory 2-1"
+      - subcategory: "Ingestion"
         content: |
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Tools that bring data in from databases, applications, files and event streams, in batches or continuously.
+      - subcategory: "Transformation"
+        content: |
+          Tools that turn raw tables into modeled ones with SQL, on a schedule or continuously.
+      - subcategory: "Query"
+        content: |
+          Engines that answer SQL queries. Some read open tables in place, some keep their own storage, and many do both.
 
-      - subcategory: "Subcategory 2-2"
+  - category: "Compute (Python)"
+    content: |
+      Engines and libraries where Python, DataFrames or other code is the main interface.
+    subcategories:
+      - subcategory: "Ingestion"
         content: |
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Python libraries and frameworks that load data into the lakehouse.
+      - subcategory: "Transformation"
+        content: |
+          Distributed engines and DataFrame libraries that process data, from one machine to a large cluster.
+      - subcategory: "Query"
+        content: |
+          In-process engines and libraries that query tables and files from code.
+      - subcategory: "Execution Acceleration"
+        content: |
+          Native execution layers that speed up an engine such as Spark without changing user code.
+
+  - category: "Data Catalog"
+    content: |
+      A catalog tells engines which tables exist, where their current metadata is, and who may use them.
+    subcategories:
+      - subcategory: "Apache Hudi"
+        content: |
+          Catalogs that can register Apache Hudi tables.
+      - subcategory: "Apache Iceberg"
+        content: |
+          Catalogs that can serve Apache Iceberg tables, often through the Iceberg REST API.
+      - subcategory: "Delta Lake"
+        content: |
+          Catalogs that can register Delta Lake tables.
+      - subcategory: "Git-like Versioning"
+        content: |
+          Branches, commits and merges for data, so changes can be tested in isolation and rolled back.
+      - subcategory: "Metadata"
+        content: |
+          Discovery, lineage, quality and governance for people, above the technical catalog.
+
+  - category: "Data Table Format"
+    content: |
+      Formats turn files in storage into tables that several engines can read and write safely.
+    subcategories:
+      - subcategory: "Open Table Format"
+        content: |
+          Specifications that add transactions, schema evolution and time travel to files in a lake.
+      - subcategory: "Interoperability"
+        content: |
+          Tools that let a table written in one format be read as another.
+      - subcategory: "File Format"
+        content: |
+          File and in-memory layouts that table formats and engines are built on.
+
+  - category: "Data Storage"
+    content: |
+      Where the files live.
+    subcategories:
+      - subcategory: "Object Store"
+        content: |
+          Cloud services and self-hosted systems that store objects, usually with an S3-compatible API.
+      - subcategory: "HDFS"
+        content: |
+          Hadoop file storage and systems compatible with it.
+      - subcategory: "Cache and File System"
+        content: |
+          Layers between compute and storage that cache data or present object storage as a file system.
+      - subcategory: "Streaming Storage"
+        content: |
+          Storage for continuously arriving data that feeds lakehouse tables.
+
+  - category: "Data Orchestration"
+    content: |
+      Orchestrators decide what runs, when, and in which order.
+    subcategories:
+      - subcategory: "Asset Aware"
+        content: |
+          Tools organized around the datasets they produce, so lineage and freshness are first-class.
+      - subcategory: "Task Based"
+        content: |
+          Tools organized around tasks and workflows.
+
+  - category: "BI and Visualization"
+    content: |
+      How people see and explore the data.
+    subcategories:
+      - subcategory: "Traditional"
+        content: |
+          Dashboards and reports built mainly in a visual interface.
+      - subcategory: "As Code"
+        content: |
+          Dashboards, notebooks and data apps kept as code and reviewed like code.
+
+  - category: "Semantic Layer"
+    content: |
+      One definition of metrics and relationships, shared by every tool that asks.
+    subcategories:
+      - subcategory: "Closed"
+        content: |
+          Semantic layers that are part of a commercial product.
+      - subcategory: "Open"
+        content: |
+          Semantic layers with an open source repository.
