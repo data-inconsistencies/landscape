@@ -106,7 +106,9 @@ export function start(win = window, doc = document) {
   addScript(COOKIEHUB, () => {
     // The CookieHub account has the old domain, and a cookie for another domain is not saved.
     if (win.__cookiehub?.settings?.general) win.__cookiehub.settings.general.domain = HOST;
-    const load = () => win.cookiehub.load({ onAllow: allow, onRevoke: revoke });
+    // CookieHub announces onAllow once per page for a category, not again after onRevoke: onStatusChange fills the gap.
+    const changed = () => (win.cookiehub.hasConsented("analytics") === true ? allow : revoke)("analytics");
+    const load = () => win.cookiehub.load({ onAllow: allow, onRevoke: revoke, onStatusChange: changed });
     if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", load);
     else load();
   });
