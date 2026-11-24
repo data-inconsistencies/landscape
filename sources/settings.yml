@@ -46,6 +46,7 @@ groups:
       - Data Table Format
       - Data Storage
       - Data Orchestration
+      - Data Quality and Observability
       - BI and Visualization
       - Semantic Layer
   - name: Data Lakehouse with Analytics Processing Engine
@@ -56,6 +57,7 @@ groups:
       - Data Table Format
       - Data Storage
       - Data Orchestration
+      - Data Quality and Observability
       - BI and Visualization
       - Semantic Layer
 

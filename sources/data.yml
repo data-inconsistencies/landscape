@@ -444,6 +444,8 @@ categories:
             logo: datahub.svg
             repo_url: https://github.com/datahub-project/datahub
             twitter: https://x.com/datahubproject
+            second_path:
+              - "Data Quality and Observability / Data Observability"
           - name: "Egeria"
             description: "Open metadata and governance standards and services for exchanging metadata between tools."
             homepage_url: https://egeria-project.org/
@@ -465,6 +467,9 @@ categories:
             logo: openmetadata.svg
             repo_url: https://github.com/open-metadata/OpenMetadata
             twitter: https://x.com/open_metadata
+            second_path:
+              - "Data Quality and Observability / Data Quality"
+              - "Data Quality and Observability / Data Observability"
   - name: "Data Table Format"
     subcategories:
       - name: "Open Table Format"
@@ -683,6 +688,118 @@ categories:
             homepage_url: https://www.prefect.io/
             logo: prefect.svg
             repo_url: https://github.com/PrefectHQ/prefect
+  - name: "Data Quality and Observability"
+    subcategories:
+      - name: "Data Quality"
+        items:
+          - name: "Ataccama"
+            description: "Commercial platform for data quality, observability, cataloging and lineage."
+            homepage_url: https://www.ataccama.com/
+            logo: ataccama.svg
+          - name: "cuallee"
+            description: "Python data quality checks that work across DataFrame libraries and engines."
+            homepage_url: https://canimus.github.io/cuallee/
+            logo: cuallee.svg
+            repo_url: https://github.com/canimus/cuallee
+          - name: "Data Contract CLI"
+            description: "Command-line tool that tests data against data contracts on many platforms."
+            homepage_url: https://cli.datacontract.com/
+            logo: data-contract-cli.svg
+            repo_url: https://github.com/datacontract/datacontract-cli
+          - name: "Datafold"
+            description: "Commercial platform for data diffs, data testing and migration validation."
+            homepage_url: https://www.datafold.com/
+            logo: datafold.svg
+          - name: "DataOps TestGen"
+            description: "Tool from DataKitchen that profiles tables and generates data quality tests from the results."
+            homepage_url: https://datakitchen.io/products/dataops-testgen/
+            logo: dataops-testgen.svg
+            repo_url: https://github.com/DataKitchen/dataops-testgen
+          - name: "Deequ"
+            description: "Library from AWS Labs, built on Apache Spark, for defining unit tests for data."
+            homepage_url: https://github.com/awslabs/deequ
+            logo: deequ.svg
+            repo_url: https://github.com/awslabs/deequ
+          - name: "DQX"
+            description: "Databricks Labs framework that checks data quality of PySpark DataFrames and tables."
+            homepage_url: https://databrickslabs.github.io/dqx/
+            logo: dqx.svg
+            repo_url: https://github.com/databrickslabs/dqx
+          - name: "fg-data-profiling"
+            description: "Data profiling reports for pandas and Spark DataFrames, formerly ydata-profiling."
+            homepage_url: https://github.com/Data-Centric-AI-Community/fg-data-profiling
+            logo: fg-data-profiling.svg
+            repo_url: https://github.com/Data-Centric-AI-Community/fg-data-profiling
+          - name: "Great Expectations"
+            description: "Framework (GX Core) for testing, validating and documenting data quality in pipelines."
+            homepage_url: https://greatexpectations.io/
+            logo: great-expectations.svg
+            repo_url: https://github.com/fivetran/great_expectations
+          - name: "Open Data Contract Standard"
+            description: "Open standard from Bitol for describing the structure, quality and terms of data in a contract."
+            homepage_url: https://bitol.io/
+            logo: open-data-contract-standard.svg
+            repo_url: https://github.com/bitol-io/open-data-contract-standard
+          - name: "Pandera"
+            description: "Lightweight Python library for validating DataFrames with schemas and statistical checks."
+            homepage_url: https://pandera.readthedocs.io/en/stable/
+            logo: pandera.svg
+            repo_url: https://github.com/unionai-oss/pandera
+          - name: "Pointblank"
+            description: "Data validation toolkit from Posit for assessing and monitoring the quality of tables."
+            homepage_url: https://posit-dev.github.io/pointblank/
+            logo: pointblank.svg
+            repo_url: https://github.com/posit-dev/pointblank
+          - name: "Recce"
+            description: "Data validation toolkit for reviewing the impact of dbt changes in pull requests."
+            homepage_url: https://reccehq.com/
+            logo: recce.svg
+            repo_url: https://github.com/DataRecce/recce
+          - name: "Soda"
+            description: "Data quality platform whose Soda Core engine runs data contract checks on tables."
+            homepage_url: https://soda.io/
+            logo: soda.svg
+            repo_url: https://github.com/sodadata/soda-core
+      - name: "Data Observability"
+        items:
+          - name: "Acceldata"
+            description: "Commercial platform for data observability, quality and operations."
+            homepage_url: https://www.acceldata.io/
+            logo: acceldata.svg
+          - name: "Anomalo"
+            description: "Commercial platform that monitors data quality and detects anomalies."
+            homepage_url: https://www.anomalo.com/
+            logo: anomalo.svg
+          - name: "Bigeye"
+            description: "Commercial platform for data observability and lineage."
+            homepage_url: https://www.bigeye.com/
+            logo: bigeye.svg
+          - name: "DataOps Observability"
+            description: "Tool from DataKitchen that collects run, test and timing events from the tools in a pipeline."
+            homepage_url: https://datakitchen.io/products/dataops-observability/
+            logo: dataops-observability.svg
+            repo_url: https://github.com/DataKitchen/dataops-observability
+          - name: "Elementary"
+            description: "Data observability for dbt projects, with tests, alerts and reports."
+            homepage_url: https://www.elementary-data.com/
+            logo: elementary.svg
+            repo_url: https://github.com/elementary-data/elementary
+          - name: "Metaplane"
+            description: "Commercial data observability platform, part of Datadog."
+            homepage_url: https://www.metaplane.dev/
+            logo: metaplane.svg
+          - name: "Monte Carlo"
+            description: "Commercial platform for data and AI observability."
+            homepage_url: https://montecarlo.ai/
+            logo: monte-carlo.svg
+          - name: "Sifflet"
+            description: "Commercial platform for data observability."
+            homepage_url: https://www.siffletdata.com/
+            logo: sifflet.svg
+          - name: "Validio"
+            description: "Commercial platform for data quality, observability and lineage."
+            homepage_url: https://validio.io/
+            logo: validio.svg
   - name: "BI and Visualization"
     subcategories:
       - name: "Traditional"
