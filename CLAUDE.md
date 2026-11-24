@@ -22,6 +22,7 @@ work. Every change goes through a pull request that a person approves; never pus
 ## Known mistakes
 - `images.favicon` in `settings.yml` must be a URL. Header and footer logos can be paths.
 - `sed -i` differs between macOS and Linux; write to a new file instead.
+- Netlify's project settings use `build` as base directory, which is not in the repository. `netlify.toml` overrides it.
 - ASF podlings need "(Incubating)" in the name. Check https://whimsy.apache.org/public/public_podlings.json.
 
 ## Done means
