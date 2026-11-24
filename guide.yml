@@ -12,8 +12,8 @@ categories:
     subcategories:
       - subcategory: "Two kinds of lakehouse"
         content: |
-          The landscape has two tabs. They share storage, table format, catalog, orchestration, BI and semantic
-          layers, and differ in how data is computed:
+          The landscape has two tabs. They share storage, table format, catalog, orchestration, quality, BI and
+          semantic layers, and differ in how data is computed:
 
           * **Data Lakehouse with SQL Query Engine**: people and tools work in SQL, and a query engine serves them.
           * **Data Lakehouse with Analytics Processing Engine**: people work in Python or DataFrames, and a processing engine runs their code.
@@ -121,6 +121,17 @@ categories:
       - subcategory: "Task Based"
         content: |
           Tools organized around tasks and workflows.
+
+  - category: "Data Quality and Observability"
+    content: |
+      How you know the data is right, and find out when it stops being right.
+    subcategories:
+      - subcategory: "Data Quality"
+        content: |
+          Tools and standards that state what the data should look like and test it: checks, contracts, profiling and diffs.
+      - subcategory: "Data Observability"
+        content: |
+          Tools that watch pipelines and tables over time for problems such as late, missing or unusual data.
 
   - category: "BI and Visualization"
     content: |

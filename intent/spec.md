@@ -1,9 +1,12 @@
 # Spec: data lakehouse landscape
 
 ## Layers
-Eight categories, unchanged from the first version except for clearer subcategory names:
-Compute (SQL), Compute (Python), Data Catalog, Data Table Format, Data Storage, Data Orchestration,
-BI and Visualization, Semantic Layer.
+Nine categories: Compute (SQL), Compute (Python), Data Catalog, Data Table Format, Data Storage, Data Orchestration,
+Data Quality and Observability, BI and Visualization, Semantic Layer. The first version had all of them except
+Data Quality and Observability.
+
+Data Quality and Observability covers checks, contracts, profiling and monitoring of data in tables and pipelines.
+Monitoring of machine learning models, AI agents and infrastructure is out.
 
 Both groups (tabs) show every layer except the other group's compute layer. The first version left orchestration, BI
 and semantic layers out of the SQL group.
