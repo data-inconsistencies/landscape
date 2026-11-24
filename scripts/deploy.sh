@@ -1,22 +1,21 @@
 #!/bin/bash
+# Build the public site and publish it as one normal commit on gh-pages (never a force-push).
+set -euo pipefail
+cd "$(dirname "$0")/.."
 
-# Update settings.yml: the public site is served from a subpath of GitHub Pages, local `make serve` from the root
-sed -i.bak 's|http://127.0.0.1:8000|https://data-inconsistencies.github.io/landscape|g' settings.yml && rm settings.yml.bak
-printf '\nbase_path: /landscape\n' >> settings.yml
+scripts/build-site.sh public
 
-# Build the project
-landscape2 build --data-file data.yml --settings-file settings.yml --guide-file guide.yml --games-file games.yml --logos-path logos --output-dir build
-git checkout settings.yml
-
-# Check for changes and deploy
-if [[ -n $(git status --porcelain) ]]; then
-    git checkout gh-pages
-    git stage -f build
-    git commit -m "update static build for pages"
-    git subtree push -f --prefix build origin gh-pages
+site=$(mktemp -d)
+trap 'git worktree remove --force "$site"' EXIT
+git fetch origin gh-pages
+git worktree add --force --detach "$site" FETCH_HEAD
+find "$site" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+cp -R build/. "$site"
+cd "$site"
+git add -A --force
+if git diff --cached --quiet; then
+    echo "No changes to deploy."
 else
-    echo "No changes to commit."
+    git commit -m "Publish landscape"
+    git push origin HEAD:gh-pages
 fi
-
-# Checkout back to main branch
-git checkout main

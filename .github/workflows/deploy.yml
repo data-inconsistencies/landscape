@@ -1,0 +1,22 @@
+# Publishes main to gh-pages. Only runs when a person starts it.
+name: Deploy
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: deploy
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make setup
+      - run: scripts/install-landscape2.sh
+      - run: make test
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          make deploy
+        env:
+          GITHUB_TOKENS: ${{ github.token }}

@@ -1,20 +1,56 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cncf/landscape2/refs/heads/main/docs/config/schema/games.schema.json
+
 # Landscape2 games data
 #
-# This file contains the data that will be used in the landscape games.
-#
-# Reference documentation: https://github.com/cncf/landscape2/blob/main/docs/config/games.yml
+# Reference documentation: https://github.com/cncf/landscape2/blob/v1.1.0/docs/config/games.yml
 
 quiz:
   questions:
-    - title: "Which of the following items have feature X?"
+    - title: "Which of these is an open table format?"
       options:
-        - item: Item 1
+        - item: Apache Iceberg
           correct: true
-        - item: Item 2
-        - item: Item 3
-    - title: "Please select the item with feature Y"
+        - item: Apache Parquet
+        - item: Trino
+    - title: "Which of these converts table metadata between Hudi, Iceberg and Delta Lake?"
       options:
-        - item: Item 1
-        - item: Item 2
-        - item: Item 3
+        - item: Apache XTable (Incubating)
           correct: true
+        - item: Apache Arrow
+        - item: Delta Lake
+    - title: "Which of these is a distributed SQL query engine?"
+      options:
+        - item: Trino
+          correct: true
+        - item: Apache Avro
+        - item: Dagster
+    - title: "Which of these adds Git-like branches to object storage?"
+      options:
+        - item: lakeFS
+          correct: true
+        - item: Ceph
+        - item: Alluxio
+    - title: "Which of these is a data orchestrator?"
+      options:
+        - item: Dagster
+          correct: true
+        - item: Polars
+        - item: Apache ORC
+    - title: "Which of these is an open source semantic layer?"
+      options:
+        - item: Cube
+          correct: true
+        - item: Debezium
+        - item: JuiceFS
+    - title: "Which of these is a Spark accelerator built on Apache DataFusion?"
+      options:
+        - item: Apache DataFusion Comet
+          correct: true
+        - item: Modin
+        - item: Apache Kafka
+    - title: "Which of these is an Apache Iceberg REST catalog?"
+      options:
+        - item: Apache Polaris
+          correct: true
+        - item: Apache Hudi
+        - item: Metabase
